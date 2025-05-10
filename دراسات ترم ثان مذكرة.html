@@ -1,0 +1,1913 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدراسات الترم الثاني - نسخة تجريبية -</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@400;700&display=swap">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --papyrus: #F5DEB3;
+            --blue: #104E8B;
+            --turquoise: #40E0D0;
+            --red: #8B0000;
+            --sand: #F4D996;
+            --brown: #654321;
+            --dark-brown: #3A2718;
+            --teal: #008080;
+            --royal-blue: #4169E1;
+        }
+
+        body {
+            font-family: 'Amiri', serif;
+            background-color: var(--papyrus);
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/papyrus-texture.jpg');
+            background-attachment: fixed;
+            color: var(--brown);
+            line-height: 1.8;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .egyptian-border {
+            border: 20px solid transparent;
+            border-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/egyptian-border.png') 30 round;
+        }
+
+        .header-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/egyptian-header.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hieroglyphic-divider {
+            height: 40px;
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/hieroglyphics-divider.png');
+            background-repeat: repeat-x;
+            background-size: contain;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Reem Kufi', sans-serif;
+            font-weight: 700;
+            color: var(--dark-brown);
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, var(--dark-gold), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            border-bottom: 4px double var(--gold);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--gold);
+            margin-top: 5px;
+            transition: width 0.3s ease-in-out;
+        }
+
+        h2:hover::after {
+            width: 120px;
+        }
+
+        h3 {
+            font-size: 1.9rem;
+            border-right: 5px solid var(--gold);
+            padding-right: 15px;
+            margin-top: 25px;
+            color: var(--blue);
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            color: var(--teal);
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        h4::before {
+            content: "☥";
+            margin-left: 10px;
+            font-size: 1.8rem;
+            color: var(--gold);
+        }
+
+        .eye-of-horus {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/eye-of-horus.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+            margin-left: 15px;
+        }
+
+        .ankh {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/ankh.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        .unit-card {
+            background-color: rgba(244, 217, 150, 0.8);
+            border: 3px solid var(--gold);
+            border-radius: 15px;
+            margin-bottom: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .unit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .unit-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/egyptian-corner-decoration.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .unit-header {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: #333;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .unit-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/hieroglyphics-bg.png');
+            background-size: contain;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .unit-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s ease-in-out;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .unit-content.show {
+            max-height: 10000px;
+            padding: 25px;
+        }
+
+        .lesson {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-right: 5px solid var(--teal);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .lesson:hover {
+            border-right-width: 10px;
+            transform: translateX(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .lesson::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/papyrus-corner.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .qa-format {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .question {
+            font-size: 1.25rem;
+            color: var(--blue);
+            font-weight: 700;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background-color: rgba(244, 217, 150, 0.3);
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .question:hover {
+            background-color: rgba(244, 217, 150, 0.5);
+        }
+
+        .question::before {
+            content: "س";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: var(--gold);
+            color: white;
+            border-radius: 50%;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        .question i {
+            margin-right: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+            padding: 0 15px;
+        }
+
+        .answer.show {
+            max-height: 1000px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-right: 4px solid var(--gold);
+        }
+
+        .answer::before {
+            content: "ج";
+            float: right;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: var(--teal);
+            color: white;
+            border-radius: 50%;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-right: 10px;
+        }
+
+        li {
+            position: relative;
+            padding: 8px 35px 8px 0;
+            margin-bottom: 5px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        li:hover {
+            transform: translateX(-5px);
+        }
+
+        li::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 12px;
+            width: 25px;
+            height: 25px;
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/scarab.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 1px solid var(--gold);
+            background-color: rgba(244, 217, 150, 0.5);
+            position: relative;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/egyptians-silhouette.png');
+            background-position: bottom center;
+            background-repeat: repeat-x;
+            background-size: contain;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .pyramid-decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/pyramid-silhouette.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .notes-section {
+            background-color: rgba(64, 224, 208, 0.15);
+            border: 3px dashed var(--gold);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            position: relative;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .notes-title {
+            position: absolute;
+            top: -20px;
+            right: 30px;
+            background-color: var(--gold);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-section {
+            margin: 50px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(244, 217, 150, 0.4));
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .video-embed {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            border: 5px solid var(--gold);
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background-color: #000;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-title {
+            margin: 15px 0;
+            font-weight: bold;
+            color: var(--dark-brown);
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .shimmer {
+            animation: shimmer 2s infinite linear;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+            background-size: 1000px 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-delay-1 { animation-delay: 0.2s; }
+        .animate-delay-2 { animation-delay: 0.4s; }
+        .animate-delay-3 { animation-delay: 0.6s; }
+        .animate-delay-4 { animation-delay: 0.8s; }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-pills {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .nav-pill {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .nav-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-pill::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/hieroglyphics-bg.png');
+            background-size: contain;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .flipcard {
+            perspective: 1000px;
+            width: 100%;
+            height: 200px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .flipcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .flipcard:hover .flipcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flipcard-front, .flipcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .flipcard-front {
+            background: linear-gradient(135deg, var(--teal), var(--royal-blue));
+            color: white;
+        }
+
+        .flipcard-back {
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .concept {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .definition {
+            font-size: 1.2rem;
+        }
+
+        .quiz-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-title {
+            font-size: 1.6rem;
+            color: var(--blue);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question {
+            font-size: 1.3rem;
+            color: var(--dark-brown);
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-option {
+            padding: 12px 15px;
+            background-color: rgba(244, 217, 150, 0.5);
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background-color: rgba(244, 217, 150, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .quiz-option.correct {
+            background-color: rgba(0, 128, 0, 0.2);
+            border-color: green;
+        }
+
+        .quiz-option.incorrect {
+            background-color: rgba(255, 0, 0, 0.2);
+            border-color: red;
+        }
+
+        .quiz-feedback {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        .quiz-feedback.correct {
+            background-color: rgba(0, 128, 0, 0.1);
+            color: green;
+            border: 1px solid green;
+        }
+
+        .quiz-feedback.incorrect {
+            background-color: rgba(255, 0, 0, 0.1);
+            color: red;
+            border: 1px solid red;
+        }
+
+        .interactive-map {
+            width: 100%;
+            height: 400px;
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/africa-map.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 30px 0;
+            position: relative;
+            border: 3px solid var(--gold);
+            border-radius: 10px;
+        }
+
+        .map-hotspot {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(212, 175, 55, 0.6);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+        }
+
+        .map-hotspot:hover {
+            transform: scale(1.2);
+            background-color: rgba(212, 175, 55, 0.9);
+            box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.7);
+        }
+
+        .map-popup {
+            position: absolute;
+            background-color: white;
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            padding: 15px;
+            width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            display: none;
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .concept-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: all 0.3s ease;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .concept-title {
+            font-size: 1.2rem;
+            color: var(--blue);
+            margin-bottom: 10px;
+            border-bottom: 2px dashed var(--gold);
+            padding-bottom: 5px;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--gold);
+            top: 0;
+            bottom: 0;
+            right: 50px;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px 10px 80px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+            top: 20px;
+            right: -10px;
+        }
+
+        .timeline-date {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            right: 40px;
+            text-align: center;
+            background-color: var(--gold);
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .golden-button {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 15px 0;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .golden-button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://cdn.jsdelivr.net/gh/mohammadjarabah/egyptian-gallery@main/hieroglyphics-bg.png');
+            background-size: contain;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .golden-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1200px;
+            }
+
+            .video-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .concept-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .lesson {
+                padding: 30px;
+            }
+
+            .unit-content.show {
+                padding: 30px;
+            }
+        }
+
+         {
+            .unit-content {
+                max-height: none !important;
+                display: block !important;
+                padding: 20px !important;
+            }
+            
+            body {
+                background-image: none;
+                background-color: white;
+            }
+            
+            .video-section {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-bg egyptian-border py-10 px-6 text-center mb-10 relative">
+        <div class="pyramid-decoration" style="left: 10px; top: 10px;"></div>
+        <div class="pyramid-decoration" style="right: 10px; top: 10px;"></div>
+        
+        <h1 class="text-4xl sm:text-5xl mb-4 text-white shadow-lg fade-in">
+            <span class="eye-of-horus float-animation"></span>
+            ملخص منهج الدراسات الاجتماعية
+        </h1>
+        <h2 class="text-2xl sm:text-3xl text-white border-0 fade-in animate-delay-1">
+       منهج الدراسات الصف الاول الاعدادي الترم الثان الملخص الشامل
+        </h2>
+        <div class="hieroglyphic-divider mt-8 fade-in animate-delay-2"></div>
+        
+        <div class="mt-8 fade-in animate-delay-3">
+            <p class="text-xl mb-6 text-white">تنويه هذه هي نسخة تجريبية مجانية تحتوي على المنهج في هيئة اسئلة واجوبة النسخة الكاملة تحت العمل وهي تحتوي على صور وشرح الدرسة واسئلة واجوبة جميع الاسئلة من جميع الكتب وهي كالكتاب بالظبط او اكثر ولكنها مدفوعة بعشرين جنيه وانا اعمل انشاء الله على تحسين هذا الموقع </p>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 pb-10">
+        <!-- Navigation Pills -->
+        <div class="nav-pills fade-in animate-delay-4">
+            <a href="#unit1" class="nav-pill">الوحدة الأولى: سكان إفريقيا</a>
+            <a href="#unit2" class="nav-pill">الوحدة الثانية: علاقة مصر بإفريقيا</a>
+            <a href="#unit3" class="nav-pill">الوحدة الثالثة: الأنشطة الاقتصادية</a>
+            <a href="#unit4" class="nav-pill">الوحدة الرابعة: الاستعمار والتحرر</a>
+            <a href="#videos" class="nav-pill">فيديوهات شرح</a>
+        </div>
+
+        <!-- Key Concepts -->
+        <div class="concept-grid scroll-reveal">
+            <div class="concept-card">
+                <div class="concept-title">الزيادة الطبيعية</div>
+                <p>الفرق بين عدد المواليد وعدد الوفيات في منطقة ما خلال فترة زمنية محددة</p>
+            </div>
+            <div class="concept-card">
+                <div class="concept-title">الكثافة السكانية</div>
+                <p>متوسط عدد السكان في وحدة المساحة (كم²) وتختلف من منطقة لأخرى بسبب الظروف الطبيعية والبشرية</p>
+            </div>
+            <div class="concept-card">
+                <div class="concept-title">الهجرة</div>
+                <p>انتقال الأفراد من موطنهم الأصلي إلى مكان آخر بشكل مؤقت أو دائم بحثاً عن حياة أفضل</p>
+            </div>
+        </div>
+
+        <!-- Units -->
+        <div class="units-container">
+            <!-- Unit 1 -->
+            <div id="unit1" class="unit-card scroll-reveal">
+                <div class="unit-header" onclick="toggleUnit(this)">
+                    <h2 class="m-0 text-white border-0">الوحدة الأولى: سكان قارة إفريقيا</h2>
+                    <i class="fas fa-chevron-down text-white"></i>
+                </div>
+                <div class="unit-content">
+                    <!-- Flip Cards for Key Concepts -->
+                    <div class="flipcard">
+                        <div class="flipcard-inner">
+                            <div class="flipcard-front">
+                                <p class="concept">ما هو النمو السكاني؟</p>
+                                <p>(حرك الماوس فوق البطاقة أو انقر لقراءة التعريف)</p>
+                            </div>
+                            <div class="flipcard-back">
+                                <p class="definition">هو زيادة أعداد السكان في منطقة ما نتيجة لعوامل طبيعية (الفرق بين المواليد والوفيات) وعوامل بشرية (الهجرة)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>الدرس الأول: نمو وتوزيع سكان قارة إفريقيا</h3>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هو مفهوم نمو السكان وما هي أسبابه في قارة إفريقيا؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p>النمو السكاني هو زيادة أعداد السكان في منطقة ما نتيجة لعوامل طبيعية وبشرية.</p>
+                                <p><strong>الزيادة الطبيعية:</strong> تمثل الفرق بين عدد المواليد والوفيات.</p>
+                                <p><strong>أسباب الزيادة الطبيعية المرتفعة في إفريقيا:</strong></p>
+                                <ul>
+                                    <li>ارتفاع معدلات الإنجاب بسبب الزواج المبكر</li>
+                                    <li>انخفاض مستوى الوعي الصحي وضعف برامج تنظيم الأسرة</li>
+                                    <li>العادات والتقاليد التي تشجع على كثرة الإنجاب</li>
+                                    <li>التحسن النسبي في الرعاية الصحية مما أدى لانخفاض معدل الوفيات</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما المقصود بالهجرة وما تأثيرها على توزيع السكان في قارة إفريقيا؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>الهجرة:</strong> انتقال السكان من مكان إلى آخر طلباً للرزق أو هرباً من مشكلات.</p>
+                                <p><strong>أسباب الهجرة في إفريقيا:</strong></p>
+                                <ul>
+                                    <li>عدم الاستقرار السياسي والحروب الأهلية في بعض الدول</li>
+                                    <li>البحث عن فرص عمل أفضل في المدن الكبرى أو الدول المجاورة</li>
+                                    <li>السعي للحصول على تعليم أفضل في المراكز التعليمية الكبرى</li>
+                                    <li>الظروف المناخية القاسية مثل الجفاف والتصحر</li>
+                                </ul>
+                                <p><strong>تأثير الهجرة على توزيع السكان:</strong></p>
+                                <ul>
+                                    <li>زيادة الكثافة السكانية في المدن الكبرى وحول مناطق العمل</li>
+                                    <li>انخفاض الكثافة السكانية في المناطق الريفية والزراعية</li>
+                                    <li>ظهور مشكلات اقتصادية واجتماعية في مناطق الاستقبال مثل العشوائيات</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي تصنيفات الكثافة السكانية في قارة إفريقيا وأين توجد؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>الكثافة السكانية:</strong> هي متوسط عدد السكان في وحدة المساحة (كم²).</p>
+                                <p><strong>تصنيفات الكثافة السكانية في إفريقيا:</strong></p>
+                                <ul>
+                                    <li><strong>كثافة مرتفعة:</strong>
+                                        <ul>
+                                            <li>مناطق وادي النيل والدلتا في مصر</li>
+                                            <li>سواحل المغرب العربي</li>
+                                            <li>المدن الكبرى مثل القاهرة ولاجوس في نيجيريا</li>
+                                            <li>أسباب ارتفاع الكثافة: توفر المياه، تربة خصبة، مناخ معتدل، فرص عمل</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>كثافة متوسطة:</strong>
+                                        <ul>
+                                            <li>مناطق استخراج المعادن والطاقة الأحفورية</li>
+                                            <li>المناطق الصناعية المتوسطة</li>
+                                            <li>المناطق السياحية مثل شمال تونس وشواطئ كينيا</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>كثافة منخفضة:</strong>
+                                        <ul>
+                                            <li>مناطق الزراعة الواسعة والرعي</li>
+                                            <li>المناطق الهضبية متوسطة الارتفاع</li>
+                                            <li>حول الغابات الاستوائية</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>كثافة نادرة:</strong>
+                                        <ul>
+                                            <li>المناطق الصحراوية مثل الصحراء الكبرى</li>
+                                            <li>المستنقعات والمناطق ذات الغابات الكثيفة</li>
+                                            <li>المناطق شديدة البرودة في قمم الجبال العالية</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>الدرس الثاني: خصائص سكان قارة إفريقيا</h3>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هو التركيب النوعي للسكان في قارة إفريقيا؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>التركيب النوعي:</strong> هو توزيع السكان حسب النوع (ذكور وإناث)</p>
+                                <p>في معظم دول قارة إفريقيا، تتقارب نسب الذكور والإناث مع وجود اختلافات بسيطة تختلف من دولة لأخرى.</p>
+                                <p><strong>العوامل المؤثرة في التركيب النوعي:</strong></p>
+                                <ul>
+                                    <li>معدلات المواليد من الجنسين</li>
+                                    <li>معدلات الوفاة بين الجنسين</li>
+                                    <li>الهجرة النوعية التي تؤثر على نسب الذكور والإناث في مناطق معينة</li>
+                                    <li>الحروب والنزاعات التي قد تؤثر بشكل أكبر على فئة معينة</li>
+                                </ul>
+                                <p><strong>أهمية دراسة التركيب النوعي:</strong></p>
+                                <ul>
+                                    <li>تحديد حجم القوى العاملة المتاحة</li>
+                                    <li>التخطيط للخدمات الصحية والتعليمية المناسبة لكل نوع</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما المقصود بالتركيب العمري وما هي الفئات العمرية الرئيسية في قارة إفريقيا؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>التركيب العمري:</strong> هو تصنيف السكان إلى فئات عمرية مختلفة.</p>
+                                <p><strong>الفئات العمرية الرئيسية:</strong></p>
+                                <ul>
+                                    <li><strong>فئة صغار السن (الأطفال):</strong> من سن 0 إلى 14 سنة
+                                        <ul>
+                                            <li>تمثل نسبة كبيرة في معظم دول إفريقيا (حوالي 40-45% من السكان)</li>
+                                            <li>تحتاج إلى خدمات تعليمية وصحية خاصة</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>فئة متوسطي السن (الشباب):</strong> من سن 15 إلى 64 سنة
+                                        <ul>
+                                            <li>تمثل القوة العاملة المنتجة في المجتمع</li>
+                                            <li>تحتاج إلى توفير فرص عمل وتدريب مستمر</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>فئة كبار السن:</strong> من سن 65 سنة فما فوق
+                                        <ul>
+                                            <li>نسبة قليلة نسبياً في معظم الدول الإفريقية بسبب انخفاض متوسط العمر</li>
+                                            <li>تحتاج إلى رعاية صحية واجتماعية خاصة</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <p><strong>مميزات الهرم السكاني في إفريقيا:</strong></p>
+                                <ul>
+                                    <li>قاعدة عريضة تمثل فئة صغار السن (ارتفاع معدل المواليد)</li>
+                                    <li>تناقص تدريجي نحو القمة (زيادة الوفيات مع التقدم في العمر)</li>
+                                    <li>قمة ضيقة تمثل نسبة قليلة من كبار السن</li>
+                                </ul>
+                                <p><strong>تأثير التركيب العمري على سياسات الدولة:</strong></p>
+                                <ul>
+                                    <li>التعليم: زيادة عدد المدارس والجامعات</li>
+                                    <li>الصحة: زيادة المستشفيات والمراكز الصحية</li>
+                                    <li>العمل: توفير فرص عمل كافية للشباب</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي أنواع التركيبات الأخرى للسكان في قارة إفريقيا؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>التركيب الاقتصادي:</strong></p>
+                                <ul>
+                                    <li>تقسيم السكان حسب النشاط الاقتصادي (زراعة، صناعة، خدمات، تعدين، سياحة)</li>
+                                    <li>تتركز النسبة الأكبر من سكان إفريقيا في العمل بالزراعة والرعي</li>
+                                    <li>نسبة أقل تعمل في الصناعة والخدمات في المدن الكبرى</li>
+                                </ul>
+                                <p><strong>التركيب اللغوي والثقافي:</strong></p>
+                                <ul>
+                                    <li>تضم إفريقيا أكثر من 1000 لغة ولهجة مختلفة</li>
+                                    <li>اللغات الرئيسية: العربية في الشمال، السواحيلية في الشرق، الهوسا والإيبو في الغرب</li>
+                                    <li>انتشار اللغات الأوروبية كلغات رسمية في بعض الدول بسبب الاستعمار (الإنجليزية والفرنسية والبرتغالية)</li>
+                                    <li>تنوع كبير في العادات والتقاليد والأزياء والفنون الشعبية</li>
+                                </ul>
+                                <p><strong>التركيب التعليمي والصحي:</strong></p>
+                                <ul>
+                                    <li>تفاوت كبير في مستويات التعليم بين دول القارة</li>
+                                    <li>ارتفاع نسبة الأمية في بعض المناطق خاصة بين النساء</li>
+                                    <li>تباين في مستويات الرعاية الصحية بين المدن والمناطق الريفية</li>
+                                    <li>انتشار بعض الأمراض المتوطنة في مناطق معينة</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Quiz Section -->
+                        <div class="quiz-container">
+                            <div class="quiz-title">اختبر معلوماتك</div>
+                            <div class="quiz-question">ما هو السبب الرئيسي للزيادة الطبيعية المرتفعة في إفريقيا؟</div>
+                            <div class="quiz-options">
+                                <div class="quiz-option" onclick="checkAnswer(this, true)">ارتفاع معدلات الإنجاب والزواج المبكر</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">زيادة الهجرة من الخارج</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">وفرة المعادن الطبيعية</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">انتشار التعليم العالي</div>
+                            </div>
+                            <div class="quiz-feedback"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Unit 2 -->
+            <div id="unit2" class="unit-card scroll-reveal">
+                <div class="unit-header" onclick="toggleUnit(this)">
+                    <h2 class="m-0 text-white border-0">الوحدة الثانية: علاقة مصر بإفريقيا</h2>
+                    <i class="fas fa-chevron-down text-white"></i>
+                </div>
+                <div class="unit-content">
+                    <!-- Timeline -->
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">1805</div>
+                            <div class="timeline-content">
+                                <h4>تولي محمد علي حكم مصر</h4>
+                                <p>بدأ محمد علي باشا عهده في مصر وبدأ تنفيذ مشروعه الإصلاحي الكبير</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">1820</div>
+                            <div class="timeline-content">
+                                <h4>حملة السودان</h4>
+                                <p>أرسل محمد علي حملة عسكرية لضم السودان وتأمين منابع النيل</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">1830</div>
+                            <div class="timeline-content">
+                                <h4>البعثات العلمية</h4>
+                                <p>بدأ إرسال البعثات العلمية إلى أوروبا لنقل العلوم الحديثة إلى مصر</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lesson">
+                        <h3>الدرس الأول: الدور الحضاري لمصر في قارة إفريقيا في عهد محمد علي</h3>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي أهم إصلاحات محمد علي التي أثرت في علاقة مصر بإفريقيا؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>التوسع الجغرافي المصري في إفريقيا:</strong></p>
+                                <ul>
+                                    <li>ضم السودان عام 1820م لتأمين منابع النيل</li>
+                                    <li>السيطرة على مناطق إستراتيجية في شرق إفريقيا</li>
+                                    <li>تأمين طرق التجارة مع الداخل الإفريقي</li>
+                                </ul>
+                                <p><strong>الإصلاحات الإدارية والعسكرية:</strong></p>
+                                <ul>
+                                    <li>إنشاء نظام إداري حديث في المناطق التي سيطرت عليها مصر</li>
+                                    <li>تأسيس جيش نظامي على الطراز الأوروبي</li>
+                                    <li>تدريب كوادر عسكرية من الأفارقة</li>
+                                </ul>
+                                <p><strong>تحديث النظام التعليمي:</strong></p>
+                                <ul>
+                                    <li>إنشاء المدارس الحديثة التي استوعبت طلاباً من مختلف مناطق إفريقيا</li>
+                                    <li>تأسيس مدرسة الطب والصيدلة والهندسة التي استقبلت طلاباً من السودان وشرق إفريقيا</li>
+                                    <li>نشر العلوم والمعارف الحديثة في أنحاء إفريقيا عن طريق الكتب المطبوعة في مصر</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هو دور البعثات العلمية التي أرسلها محمد علي في نقل المعرفة؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>إرسال البعثات العلمية لنقل المعرفة:</strong></p>
+                                <ul>
+                                    <li>أرسل محمد علي بعثات علمية إلى أوروبا لتعلم العلوم والفنون الحديثة</li>
+                                    <li>عند عودتهم قاموا بنقل ما تعلموه إلى المدارس والمؤسسات المصرية</li>
+                                    <li>استفاد الطلاب الأفارقة في مصر من هذه المعارف ونقلوها لاحقاً إلى بلدانهم</li>
+                                </ul>
+                                <p><strong>تأسيس المدارس الحديثة:</strong></p>
+                                <ul>
+                                    <li>أنشأ محمد علي عدداً من المدارس المتخصصة مثل:
+                                        <ul>
+                                            <li>مدرسة الطب في أبو زعبل عام 1827م</li>
+                                            <li>مدرسة الهندسة في بولاق</li>
+                                            <li>مدرسة الألسن لتعليم اللغات والترجمة</li>
+                                            <li>المدرسة الحربية لتخريج الضباط</li>
+                                        </ul>
+                                    </li>
+                                    <li>تم استقبال طلاب من مختلف الدول الإفريقية في هذه المدارس</li>
+                                </ul>
+                                <p><strong>تدريب الكوادر الإفريقية:</strong></p>
+                                <ul>
+                                    <li>تم تدريب كوادر من الأفارقة في مجالات:
+                                        <ul>
+                                            <li>الطب والجراحة</li>
+                                            <li>الإدارة والحكم</li>
+                                            <li>المحاسبة والمالية</li>
+                                            <li>الهندسة والعمارة</li>
+                                        </ul>
+                                    </li>
+                                    <li>عاد هؤلاء إلى بلدانهم وساهموا في نقل المعرفة والتحديث</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson">
+                        <h3>الدرس الثاني: الدور الحضاري لمصر في عهد خلفاء محمد علي</h3>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                كيف ساهمت الحملات الاستكشافية المصرية في اكتشاف إفريقيا؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>حملات الكشف عن منابع النيل:</strong></p>
+                                <ul>
+                                    <li>أرسل الخديوي إسماعيل عدة حملات لاستكشاف منابع نهر النيل منها:
+                                        <ul>
+                                            <li>حملة صموئيل بيكر (1869-1873) التي اكتشفت بحيرة ألبرت</li>
+                                            <li>حملة الإنجليزي ستانلي برعاية مصرية</li>
+                                            <li>حملات الضباط المصريين مثل سليم قبطان</li>
+                                        </ul>
+                                    </li>
+                                    <li>ساهمت هذه الحملات في:
+                                        <ul>
+                                            <li>تحديد منابع النيل الأزرق والنيل الأبيض</li>
+                                            <li>اكتشاف البحيرات الاستوائية</li>
+                                            <li>التعرف على طبيعة وجغرافية وسط إفريقيا</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <p><strong>الدور المصري في رسم خرائط أجزاء من إفريقيا:</strong></p>
+                                <ul>
+                                    <li>رسم خرائط تفصيلية للمناطق التي تم اكتشافها</li>
+                                    <li>تحديد مواقع القبائل والممالك الإفريقية</li>
+                                    <li>توثيق الممرات والطرق التجارية بين مختلف المناطق</li>
+                                    <li>تسجيل معلومات عن المناخ والنباتات والحيوانات في المناطق المكتشفة</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هو التأثير الثقافي المصري على الدول الإفريقية في عهد خلفاء محمد علي؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>انتشار النموذج المصري للتعليم:</strong></p>
+                                <ul>
+                                    <li>تبنت العديد من الدول الإفريقية النظام التعليمي المصري الحديث</li>
+                                    <li>إرسال المعلمين المصريين للتدريس في مدارس الدول الإفريقية</li>
+                                    <li>مساعدة الدول الإفريقية في إنشاء مدارس على الطراز المصري</li>
+                                    <li>استقبال الطلاب الأفارقة في المدارس والجامعات المصرية خاصة الأزهر الشريف</li>
+                                </ul>
+                                <p><strong>تأثير مصر في الفنون والآداب الإفريقية:</strong></p>
+                                <ul>
+                                    <li>انتشار المطابع والصحف المصرية في أجزاء من إفريقيا</li>
+                                    <li>تأثر الأدباء والشعراء الأفارقة بالنهضة الأدبية المصرية</li>
+                                    <li>نشر اللغة العربية والثقافة الإسلامية في العديد من المناطق</li>
+                                    <li>تأثر الفن المسرحي والموسيقى في بعض الدول الإفريقية بالفن المصري</li>
+                                    <li>مساهمة الفنانين والأدباء المصريين في الحياة الثقافية في إفريقيا</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Unit 3 -->
+            <div id="unit3" class="unit-card scroll-reveal">
+                <div class="unit-header" onclick="toggleUnit(this)">
+                    <h2 class="m-0 text-white border-0">الوحدة الثالثة: الأنشطة الاقتصادية</h2>
+                    <i class="fas fa-chevron-down text-white"></i>
+                </div>
+                <div class="unit-content">
+                    <div class="lesson">
+                        <h3>الدرس الأول: الزراعة والثروة الحيوانية والسمكية في إفريقيا</h3>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي أنواع الزراعة المنتشرة في قارة إفريقيا؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>الزراعة البدائية (التقليدية):</strong></p>
+                                <ul>
+                                    <li>تنتشر في المناطق الاستوائية والسافانا</li>
+                                    <li>تعتمد على الأمطار وحرق الغابات لتوفير مساحات زراعية</li>
+                                    <li>استخدام أدوات بسيطة مثل الفأس والمعول</li>
+                                    <li>محاصيل رئيسية: الذرة، الدخن، الكاسافا</li>
+                                    <li>مشكلات: انخفاض الإنتاجية، استنزاف التربة، تعرية التربة</li>
+                                </ul>
+                                <p><strong>الزراعة الكثيفة:</strong></p>
+                                <ul>
+                                    <li>تمارس في المناطق ذات الكثافة السكانية العالية</li>
+                                    <li>تعتمد على الري والأسمدة</li>
+                                    <li>استخدام أساليب حديثة نسبياً</li>
+                                    <li>مناطق انتشارها: وادي النيل، دلتا النيجر، المناطق الساحلية</li>
+                                    <li>محاصيل رئيسية: الأرز، القمح، الخضروات</li>
+                                </ul>
+                                <p><strong>الزراعة الواسعة:</strong></p>
+                                <ul>
+                                    <li>زراعة محاصيل تجارية في مساحات كبيرة</li>
+                                    <li>استخدام الآلات الزراعية الحديثة</li>
+                                    <li>تهدف للتصدير والتجارة العالمية</li>
+                                    <li>مناطق انتشارها: شمال إفريقيا، شرق إفريقيا، جنوب إفريقيا</li>
+                                    <li>محاصيل رئيسية: القطن، البن، الكاكاو، قصب السكر، الموز، الشاي</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي أهم المحاصيل الزراعية في قارة إفريقيا وأين تنتشر؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>محاصيل غذائية:</strong></p>
+                                <ul>
+                                    <li><strong>القمح:</strong> شمال إفريقيا (مصر، المغرب، الجزائر، تونس)</li>
+                                    <li><strong>الذرة:</strong> منتشرة في معظم أنحاء القارة، خاصة في مناطق السافانا</li>
+                                    <li><strong>الشعير:</strong> المناطق شبه الجافة في شمال إفريقيا</li>
+                                    <li><strong>الأرز:</strong> دلتا النيجر، مدغشقر، وادي النيل</li>
+                                </ul>
+                                <p><strong>محاصيل نقدية:</strong></p>
+                                <ul>
+                                    <li><strong>القطن:</strong> مصر، السودان، مالي، بوركينا فاسو</li>
+                                    <li><strong>البن:</strong> إثيوبيا، كينيا، أوغندا، تنزانيا</li>
+                                    <li><strong>الكاكاو:</strong> ساحل العاج، غانا، نيجيريا، الكاميرون</li>
+                                    <li><strong>قصب السكر:</strong> مصر، السودان، موزمبيق، موريشيوس</li>
+                                </ul>
+                                <p><strong>محاصيل درنية:</strong></p>
+                                <ul>
+                                    <li><strong>البطاطس:</strong> المناطق المرتفعة في شمال إفريقيا وشرقها</li>
+                                    <li><strong>البطاطا:</strong> المناطق الاستوائية والمدارية</li>
+                                    <li><strong>الكاسافا (المنيهوت):</strong> حوض الكونغو، نيجيريا، غانا</li>
+                                </ul>
+                                <p><strong>محاصيل المنبهات:</strong></p>
+                                <ul>
+                                    <li><strong>الشاي:</strong> كينيا، أوغندا، رواندا، ملاوي</li>
+                                    <li><strong>القهوة:</strong> إثيوبيا (موطنها الأصلي)، كينيا، تنزانيا</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي أهمية الثروة الحيوانية في قارة إفريقيا وأهم تحدياتها؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>تربية الماشية في المناطق الرعوية:</strong></p>
+                                <ul>
+                                    <li>مناطق الرعي الرئيسية:
+                                        <ul>
+                                            <li>حزام الساحل الإفريقي (موريتانيا، مالي، النيجر، تشاد، السودان)</li>
+                                            <li>شرق إفريقيا (إثيوبيا، الصومال، كينيا)</li>
+                                            <li>مناطق السافانا في وسط وجنوب القارة</li>
+                                        </ul>
+                                    </li>
+                                    <li>أنواع الماشية الرئيسية: الأبقار، الأغنام، الماعز، الإبل</li>
+                                    <li>القبائل الرعوية الشهيرة: الماساي (كينيا وتنزانيا)، الفولاني (غرب إفريقيا)، البقارة (السودان)</li>
+                                </ul>
+                                <p><strong>إنتاج اللحوم والألبان:</strong></p>
+                                <ul>
+                                    <li>الدول الرائدة في إنتاج اللحوم: إثيوبيا، السودان، كينيا، جنوب إفريقيا</li>
+                                    <li>الدول الرائدة في إنتاج الألبان: كينيا، إثيوبيا، السودان، مصر</li>
+                                    <li>تربية الدواجن والأرانب منتشرة في معظم الدول</li>
+                                </ul>
+                                <p><strong>تحديات تنمية الثروة الحيوانية:</strong></p>
+                                <ul>
+                                    <li>الجفاف والتصحر وشحّ الموارد المائية</li>
+                                    <li>الأمراض الحيوانية مثل مرض النوم (التريبانوسوما) ومرض الحمى القلاعية</li>
+                                    <li>قلة الاستثمار في مجال الرعاية البيطرية</li>
+                                    <li>المنافسة على الأراضي مع الزراعة والتوسع العمراني</li>
+                                    <li>صعوبة الوصول إلى الأسواق بسبب ضعف شبكات النقل</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي أهمية الثروة السمكية في إفريقيا وأين تتركز؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>أهمية المسطحات المائية في إفريقيا:</strong></p>
+                                <ul>
+                                    <li>تمتلك إفريقيا مسطحات مائية متنوعة:
+                                        <ul>
+                                            <li>سواحل بحرية طويلة على البحر المتوسط والأحمر والمحيطين الأطلسي والهندي</li>
+                                            <li>أنهار كبيرة مثل النيل والكونغو والنيجر والزمبيزي</li>
+                                            <li>بحيرات عذبة مثل فيكتوريا وتانجانيقا وتشاد ونياسا</li>
+                                        </ul>
+                                    </li>
+                                    <li>توفر مصدراً مهماً للغذاء البروتيني</li>
+                                    <li>تساهم في الاقتصاد المحلي وتوفير فرص العمل</li>
+                                </ul>
+                                <p><strong>أهم مناطق الصيد:</strong></p>
+                                <ul>
+                                    <li><strong>الصيد البحري:</strong>
+                                        <ul>
+                                            <li>شمال غرب إفريقيا: المغرب، موريتانيا، السنغال (مصايد غنية بفضل تيارات كناري)</li>
+                                            <li>خليج غينيا: غانا، نيجيريا، ساحل العاج</li>
+                                            <li>شرق إفريقيا: الصومال، كينيا، تنزانيا، موزمبيق</li>
+                                            <li>شمال إفريقيا: مصر، تونس، الجزائر، ليبيا (البحر المتوسط)</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>الصيد النهري والبحيري:</strong>
+                                        <ul>
+                                            <li>بحيرة فيكتوريا: أوغندا، كينيا، تنزانيا</li>
+                                            <li>بحيرة تانجانيقا: تنزانيا، الكونغو، زامبيا</li>
+                                            <li>بحيرة ناصر: مصر والسودان</li>
+                                            <li>نهر النيجر: مالي، النيجر، نيجيريا</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <p><strong>مشكلات الثروة السمكية:</strong></p>
+                                <ul>
+                                    <li>الصيد الجائر من قبل السفن الأجنبية</li>
+                                    <li>تلوث المسطحات المائية بسبب النفايات الصناعية والزراعية</li>
+                                    <li>ضعف التقنيات المستخدمة في الصيد والتخزين</li>
+                                    <li>قلة الاستثمارات في مجال الاستزراع السمكي</li>
+                                    <li>تأثير تغير المناخ على الثروة السمكية</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lesson">
+                        <h3>الدرس الثاني: التعدين والطاقة والصناعة في إفريقيا</h3>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي أهم الموارد المعدنية في إفريقيا وأين توجد؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>البوكسايت:</strong></p>
+                                <ul>
+                                    <li>يستخدم في صناعة الألومنيوم</li>
+                                    <li>أهم الدول المنتجة: غينيا (تملك أكبر احتياطي عالمي)، غانا، سيراليون، الكاميرون</li>
+                                </ul>
+                                <p><strong>اليورانيوم:</strong></p>
+                                <ul>
+                                    <li>يستخدم في توليد الطاقة النووية</li>
+                                    <li>أهم الدول المنتجة: النيجر، ناميبيا، جنوب إفريقيا، مالاوي</li>
+                                </ul>
+                                <p><strong>الحديد والكروم:</strong></p>
+                                <ul>
+                                    <li>أساسي للصناعات الثقيلة والفولاذ</li>
+                                    <li>أهم الدول المنتجة للحديد: جنوب إفريقيا، موريتانيا، ليبيريا، سيراليون</li>
+                                    <li>أهم الدول المنتجة للكروم: جنوب إفريقيا (70% من الاحتياطي العالمي)، زيمبابوي، السودان</li>
+                                </ul>
+                                <p><strong>الذهب والماس:</strong></p>
+                                <ul>
+                                    <li>من أهم المعادن النفيسة في القارة</li>
+                                    <li>أهم الدول المنتجة للذهب: جنوب إفريقيا، غانا، مالي، بوركينا فاسو، تنزانيا، السودان</li>
+                                    <li>أهم الدول المنتجة للماس: بوتسوانا، الكونغو الديمقراطية، أنغولا، ناميبيا، سيراليون</li>
+                                </ul>
+                                <p><strong>النحاس والكوبالت:</strong></p>
+                                <ul>
+                                    <li>أساسي للصناعات الكهربائية والإلكترونية</li>
+                                    <li>أهم الدول المنتجة: زامبيا (حزام النحاس)، الكونغو الديمقراطية، جنوب إفريقيا</li>
+                                </ul>
+                                <p><strong>الفوسفات:</strong></p>
+                                <ul>
+                                    <li>يستخدم في صناعة الأسمدة</li>
+                                    <li>أهم الدول المنتجة: المغرب (أكبر احتياطي عالمي)، مصر، تونس، السنغال</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي أهم مصادر الطاقة في إفريقيا؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>الطاقة الأحفورية:</strong></p>
+                                <ul>
+                                    <li><strong>الفحم:</strong>
+                                        <ul>
+                                            <li>أهم الدول المنتجة: جنوب إفريقيا (تنتج حوالي 95% من إنتاج القارة)، زيمبابوي، موزمبيق، تنزانيا</li>
+                                            <li>يستخدم في توليد الكهرباء والصناعات الثقيلة</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>البترول:</strong>
+                                        <ul>
+                                            <li>أهم الدول المنتجة: نيجيريا، ليبيا، الجزائر، أنغولا، مصر، السودان، الغابون، غينيا الاستوائية</li>
+                                            <li>يشكل المصدر الرئيسي للدخل القومي في العديد من الدول المنتجة</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>الغاز الطبيعي:</strong>
+                                        <ul>
+                                            <li>أهم الدول المنتجة: الجزائر، نيجيريا، مصر، ليبيا، موزمبيق، تنزانيا</li>
+                                            <li>اكتشافات جديدة كبيرة في شرق إفريقيا (موزمبيق وتنزانيا)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <p><strong>الطاقة المتجددة:</strong></p>
+                                <ul>
+                                    <li><strong>الطاقة الشمسية:</strong>
+                                        <ul>
+                                            <li>إمكانات هائلة في شمال إفريقيا والصحراء الكبرى</li>
+                                            <li>مشروعات كبرى في المغرب ومصر وجنوب إفريقيا</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>طاقة الرياح:</strong>
+                                        <ul>
+                                            <li>مزارع رياح في مصر، المغرب، كينيا، إثيوبيا، جنوب إفريقيا</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>الطاقة الكهرومائية:</strong>
+                                        <ul>
+                                            <li>مصدر رئيسي للكهرباء في العديد من الدول الإفريقية</li>
+                                            <li>أهم السدود: سد أسوان العالي (مصر)، سد كاريبا (زامبيا/زيمبابوي)، سد أكوسومبو (غانا)</li>
+                                            <li>مشروعات كبيرة قيد التنفيذ مثل سد النهضة الإثيوبي ومشروع سد إنجا في الكونغو</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>طاقة حرارة باطن الأرض:</strong>
+                                        <ul>
+                                            <li>مستغلة في كينيا وإثيوبيا ضمن وادي الصدع الإفريقي العظيم</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي أهم الصناعات في إفريقيا وتحدياتها؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>العلاقة بين الموارد المعدنية والصناعة:</strong></p>
+                                <ul>
+                                    <li>تعتمد الصناعات الإفريقية على المواد الخام المتوفرة محلياً</li>
+                                    <li>تركز معظم الدول على الصناعات الاستخراجية والتحويلية الأولية</li>
+                                    <li>نقص التصنيع المتقدم رغم وفرة المواد الخام</li>
+                                </ul>
+                                <p><strong>أهم الصناعات الإفريقية:</strong></p>
+                                <ul>
+                                    <li><strong>الصناعات الغذائية:</strong> منتشرة في معظم الدول الإفريقية (تعليب الخضروات والفاكهة، صناعة السكر، المشروبات، الألبان)</li>
+                                    <li><strong>صناعة النسيج:</strong> مصر (قطن)، المغرب، تونس، نيجيريا، إثيوبيا</li>
+                                    <li><strong>الصناعات التعدينية:</strong> جنوب إفريقيا (الحديد والصلب، الألومنيوم)، زامبيا (النحاس)، المغرب (الفوسفات)</li>
+                                    <li><strong>صناعة البترول والبتروكيماويات:</strong> مصر، الجزائر، ليبيا، نيجيريا</li>
+                                    <li><strong>صناعة السيارات:</strong> جنوب إفريقيا، المغرب، مصر</li>
+                                </ul>
+                                <p><strong>أهمية الاستثمار في تطوير الصناعات:</strong></p>
+                                <ul>
+                                    <li>زيادة القيمة المضافة للمواد الخام المستخرجة</li>
+                                    <li>توفير فرص عمل للسكان</li>
+                                    <li>تقليل الاعتماد على استيراد المنتجات المصنعة</li>
+                                    <li>تحسين ميزان المدفوعات للدول الإفريقية</li>
+                                    <li>نقل التكنولوجيا والخبرات الفنية</li>
+                                </ul>
+                                <p><strong>تحديات التصنيع في إفريقيا:</strong></p>
+                                <ul>
+                                    <li>ضعف البنية التحتية (طرق، كهرباء، موانئ)</li>
+                                    <li>نقص الخبرات الفنية والعمالة المدربة</li>
+                                    <li>محدودية رأس المال المحلي المتاح للاستثمار</li>
+                                    <li>عدم الاستقرار السياسي في بعض المناطق</li>
+                                    <li>المنافسة من المنتجات المستوردة</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Other lessons follow similar structure... -->
+                </div>
+            </div>
+            
+            <!-- Unit 4 -->
+            <div id="unit4" class="unit-card scroll-reveal">
+                <div class="unit-header" onclick="toggleUnit(this)">
+                    <h2 class="m-0 text-white border-0">الوحدة الرابعة: الاستعمار والتحرر</h2>
+                    <i class="fas fa-chevron-down text-white"></i>
+                </div>
+                <div class="unit-content">
+                    <div class="lesson">
+                        <h3>الدرس الأول: انتشار الإسلام في إفريقيا</h3>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي طرق انتشار الإسلام في إفريقيا؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>الطرق البحرية:</strong></p>
+                                <ul>
+                                    <li><strong>المحيط الهندي:</strong> انتشر الإسلام عبر التجار العرب على طول الساحل الشرقي لإفريقيا من الصومال إلى موزمبيق</li>
+                                    <li><strong>مضيق باب المندب:</strong> نقطة عبور مهمة للتجار المسلمين إلى القرن الإفريقي والحبشة</li>
+                                    <li>تأسست ممالك وإمارات إسلامية مثل ممالك زنجبار ومقديشو وكلوة على الساحل الشرقي</li>
+                                </ul>
+                                <p><strong>الطرق البرية:</strong></p>
+                                <ul>
+                                    <li><strong>شبه جزيرة سيناء:</strong> بوابة الإسلام إلى شمال إفريقيا عبر مصر</li>
+                                    <li><strong>الطرق التجارية الصحراوية:</strong> انتشر الإسلام عبر القوافل التجارية العابرة للصحراء الكبرى إلى غرب ووسط إفريقيا</li>
+                                    <li><strong>طريق القوافل الغربي:</strong> من المغرب إلى تمبكتو وغانا ومالي</li>
+                                    <li><strong>الطريق الأوسط:</strong> من ليبيا وتونس إلى تشاد والنيجر</li>
+                                    <li><strong>الطريق الشرقي:</strong> من مصر إلى السودان ودارفور</li>
+                                </ul>
+                                <p><strong>البحر الأحمر:</strong></p>
+                                <ul>
+                                    <li>لعب دوراً مهماً في نشر الحضارة الإسلامية في شرق إفريقيا</li>
+                                    <li>أسهم في ربط شبه الجزيرة العربية بالقرن الإفريقي وشرق إفريقيا</li>
+                                    <li>تكونت مراكز إسلامية مهمة على ساحل البحر الأحمر مثل سواكن وزيلع ومصوع</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي أساليب انتشار الإسلام في إفريقيا؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>التجارة:</strong></p>
+                                <ul>
+                                    <li>لعب التجار العرب المسلمون دوراً رئيسياً في نشر الإسلام</li>
+                                    <li>الأسواق التجارية كانت مراكز للتبادل الثقافي والديني</li>
+                                    <li>تأثر ملوك وأمراء القبائل الإفريقية بأخلاق التجار المسلمين وسلوكهم</li>
+                                    <li>أهم السلع المتداولة: الذهب، العاج، الملح، الأقمشة، التوابل</li>
+                                </ul>
+                                <p><strong>الزواج والمصاهرة:</strong></p>
+                                <ul>
+                                    <li>ساهمت المصاهرة بين التجار العرب والأسر الإفريقية المحلية في انتشار الإسلام</li>
+                                    <li>تكوين أسر مختلطة ساعد على انتشار الثقافة الإسلامية</li>
+                                    <li>قبول الإسلام للزواج من الكتابيات دون إجبارهن على اعتناق الإسلام</li>
+                                    <li>نشأة مجتمعات ذات ثقافة إسلامية عربية في مناطق الساحل والسافانا</li>
+                                </ul>
+                                <p><strong>الهجرات:</strong></p>
+                                <ul>
+                                    <li>هجرة الصحابة إلى الحبشة كانت من أولى الاتصالات الإسلامية بإفريقيا</li>
+                                    <li>هجرات القبائل العربية إلى شمال إفريقيا في القرون الأولى للإسلام</li>
+                                    <li>هجرة العلماء المسلمين هرباً من الاضطهاد في الأندلس وغيرها</li>
+                                    <li>استقرار الهاشميين والعباسيين في شرق إفريقيا</li>
+                                </ul>
+                                <p><strong>الدعوة الدينية:</strong></p>
+                                <ul>
+                                    <li>جهود العلماء والدعاة في نشر تعاليم الإسلام</li>
+                                    <li>إنشاء المراكز العلمية والمساجد</li>
+                                    <li>شهرة جامعة الأزهر في مصر وجامعة القرويين في المغرب وجامعة سنكوري في تمبكتو</li>
+                                    <li>الطرق الصوفية ودورها في نشر الإسلام في غرب وشرق إفريقيا</li>
+                                    <li>استقبال الطلاب من مختلف أنحاء إفريقيا للدراسة في المراكز الإسلامية</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="qa-format">
+                            <div class="question" onclick="toggleAnswer(this)">
+                                ما هي التأثيرات الحضارية للإسلام في إفريقيا؟
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="answer">
+                                <p><strong>انتشار اللغة العربية:</strong></p>
+                                <ul>
+                                    <li>أصبحت العربية اللغة الرسمية في شمال إفريقيا</li>
+                                    <li>استخدمت في التدوين والعلوم والتجارة في غرب وشرق إفريقيا</li>
+                                    <li>تأثير اللغة العربية على اللغات المحلية (السواحيلية، الهوسا، الفولاني)</li>
+                                    <li>استخدام الحروف العربية لكتابة اللغات المحلية في غرب إفريقيا (خط عجمي)</li>
+                                </ul>
+                                <p><strong>تأسيس المراكز العلمية والمساجد:</strong></p>
+                                <ul>
+                                    <li>بناء المساجد الكبرى في المدن الإفريقية مثل:
+                                        <ul>
+                                            <li>مسجد القيروان في تونس</li>
+                                            <li>جامع القرويين في فاس</li>
+                                            <li>مسجد جني وتمبكتو في مالي</li>
+                                        </ul>
+                                    </li>
+                                    <li>إنشاء المدارس والجامعات الإسلامية:
+                                        <ul>
+                                            <li>جامعة الأزهر في مصر</li>
+                                            <li>جامعة سنكوري في تمبكتو</li>
+                                            <li>جامعة القرويين في المغرب</li>
+                                        </ul>
+                                    </li>
+                                    <li>ازدهار حركة التأليف والترجمة في العلوم المختلفة</li>
+                                </ul>
+                                <p><strong>تنظيم الحياة الاجتماعية وفق التعاليم الإسلامية:</strong></p>
+                                <ul>
+                                    <li>تطبيق الشريعة الإسلامية في الأحكام والمعاملات</li>
+                                    <li>تنظيم الزواج والطلاق والميراث وفق التعاليم الإسلامية</li>
+                                    <li>تأثر العادات والتقاليد بالثقافة الإسلامية (الملابس، الطعام، المناسبات)</li>
+                                    <li>ظهور الفن الإسلامي في العمارة والزخارف</li>
+                                </ul>
+                                <p><strong>أثر الإسلام على النظم السياسية:</strong></p>
+                                <ul>
+                                    <li>تحول العديد من الممالك الإفريقية إلى ممالك إسلامية:
+                                        <ul>
+                                            <li>مملكة مالي وسونغاي في غرب إفريقيا</li>
+                                            <li>ممالك البورنو وكانم في منطقة بحيرة تشاد</li>
+                                            <li>سلطنات الساحل الشرقي مثل كلوة وممباسا وزنجبار</li>
+                                        </ul>
+                                    </li>
+                                    <li>تطبيق نظام الحكم الإسلامي والشورى</li>
+                                    <li>ظهور منصب القاضي ونظام القضاء الإسلامي</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Other lessons follow similar structure... -->
+                </div>
+            </div>
+            
+            <!-- Notes -->
+            <div class="notes-section scroll-reveal">
+                <div class="notes-title">ملاحظات هامة للطلاب</div>
+                <ul>
+                    <li><strong>ركز على المفاهيم الأساسية</strong> مثل الزيادة الطبيعية والهجرة والكثافة السكانية، وتأكد من فهم تعريفاتها جيداً.</li>
+                    <li><strong>اهتم بدراسة الخرائط</strong> الخاصة بالتوزيع السكاني والموارد الطبيعية والأنشطة الاقتصادية، فهي جزء أساسي من الامتحانات.</li>
+                    <li><strong>اربط الأحداث التاريخية بتأثيراتها على الحاضر</strong>، خاصة في دروس انتشار الإسلام والاستعمار، لفهم أعمق للمادة.</li>
+                    <li><strong>افهم العلاقات بين الظواهر الجغرافية والتاريخية</strong> مثل تأثير الموارد الطبيعية على الاقتصاد وتأثير الأنهار على قيام الحضارات.</li>
+                    <li><strong>ادرس النماذج المقدمة</strong> مثل تجارب النضال من أجل الاستقلال وأمثلة دور مصر في إفريقيا.</li>
+                </ul>
+            </div>
+            
+            <!-- Videos Section -->
+            <div id="videos" class="video-section scroll-reveal">
+                <h2 class="text-center mb-6">فيديوهات تعليمية للمراجعة</h2>
+                <div class="video-container">
+                    <div>
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/zB77EOhX9MI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <h4 class="video-title">مراجعة الوحدة الأولى | نمو وخصائص سكان افريقيا</h4>
+                    </div>
+                    
+                    <div>
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/ERnGgCy5mzg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <h4 class="video-title">الدرس الاول نمو وتوزيع سكان قارة إفريقيا</h4>
+                    </div>
+                    
+                    <div>
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/i8YgqWXm8oQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <h4 class="video-title">افريقيا من الاستعمار الى التحرر</h4>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <button class="golden-button">عرض المزيد من الفيديوهات</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024-2025 | ملخص منهج الدراسات الاجتماعية للصف الأول الإعدادي - الترم الثاني</p>
+        <div class="hieroglyphic-divider"></div>
+    </footer>
+
+    <script>
+        function toggleUnit(el) {
+            const content = el.nextElementSibling;
+            const icon = el.querySelector('i');
+            
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                content.classList.add('show');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        }
+        
+        function toggleAnswer(el) {
+            const answer = el.nextElementSibling;
+            const icon = el.querySelector('i');
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                answer.classList.add('show');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        }
+        
+        function checkAnswer(el, isCorrect) {
+            const options = el.parentElement.querySelectorAll('.quiz-option');
+            const feedback = el.parentElement.nextElementSibling;
+            
+            options.forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+            });
+            
+            if (isCorrect) {
+                el.classList.add('correct');
+                feedback.classList.add('correct');
+                feedback.classList.remove('incorrect');
+                feedback.style.display = 'block';
+                feedback.textContent = 'إجابة صحيحة! أحسنت.';
+            } else {
+                el.classList.add('incorrect');
+                feedback.classList.add('incorrect');
+                feedback.classList.remove('correct');
+                feedback.style.display = 'block';
+                feedback.textContent = 'إجابة غير صحيحة. حاول مرة أخرى.';
+            }
+        }
+
+        // Scroll reveal animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollElements = document.querySelectorAll('.scroll-reveal');
+            
+            const elementInView = (el, scrollOffset = 0) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) - scrollOffset);
+            };
+            
+            const displayScrollElement = (element) => {
+                element.classList.add('visible');
+            };
+            
+            const hideScrollElement = (element) => {
+                element.classList.remove('visible');
+            };
+            
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 100)) {
+                        displayScrollElement(el);
+                    } else {
+                        hideScrollElement(el);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', () => {
+                handleScrollAnimation();
+            });
+            
+            // Initialize on page load
+            handleScrollAnimation();
+            
+            // Open the first unit by default
+            const firstUnit = document.querySelector('.unit-header');
+            if (firstUnit) {
+                setTimeout(() => {
+                    toggleUnit(firstUnit);
+                }, 1000);
+            }
+
+            // Auto-scroll to anchor if present in URL
+            const hash = window.location.hash;
+            if (hash) {
+                setTimeout(() => {
+                    const targetElement = document.querySelector(hash);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // If it's a unit, open it
+                        const unitHeader = targetElement.querySelector('.unit-header');
+                        if (unitHeader) {
+                            toggleUnit(unitHeader);
+                        }
+                    }
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>
